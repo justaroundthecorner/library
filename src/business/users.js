@@ -14,6 +14,16 @@ class UserBusiness {
       throw err;
     }
   }
+
+  async getOneUser(userId) {
+    try {
+      const result = await this.userData.getOneUser(userId.id);
+      return result;
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async insertUser(payload) {
     try {
       const result = await this.userData.insertUser(payload);

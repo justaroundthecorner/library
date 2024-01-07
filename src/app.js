@@ -2,6 +2,7 @@
 const debug = require('debug')('app:prod-ecv');
 const user=require('../src/routes/users')
 const book=require('../src/routes/books')
+const borrow=require('../src/routes/borrow')
 
 const express = require('express');
 
@@ -15,5 +16,7 @@ app.use(express.urlencoded({ extended: true, limit: '100mb' }));
 app.use(express.json({ limit: '100mb' }));
 app.use(user)
 app.use(book)
+app.use(borrow)
+
 
   module.exports = server;

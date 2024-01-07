@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const BookBusiness = require("../business/books.js");
+const schemaValidator = require('../middlewares/schemaValidator');
+const schemas = require('../schema');
 
 router.get("/books", async (req, res) => {
   let result;
@@ -31,7 +33,7 @@ router.get("/books/:id", async (req, res) => {
       res.status(400).send(result);
     }
   });
-router.post("/books", async (req, res) => {
+router.post("/books", [schemaValidator(schemas.book)], async (req, res) => {
   let result;
   try {
     const bookBusiness = new BookBusiness();
