@@ -5,7 +5,7 @@ class UserBusiness {
     this.userData = new UserData();
   }
 
-  // get all users
+  // getting all users
   async getAllUsers() {
     try {
       const result = await this.userData.getAllUsers();
@@ -15,6 +15,7 @@ class UserBusiness {
     }
   }
 
+  //getting single user
   async getOneUser(userId) {
     try {
       const result = await this.userData.getOneUser(userId.id);
@@ -24,6 +25,7 @@ class UserBusiness {
     }
   }
 
+  //adding a new user
   async insertUser(payload) {
     try {
       const result = await this.userData.insertUser(payload);

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const BorrowBusiness = require("../business/borrow");
 
+//route to borrow a book
 router.post("/users/:userId/borrow/:bookId", async (req, res) => {
   let result;
   try {
@@ -11,11 +12,13 @@ router.post("/users/:userId/borrow/:bookId", async (req, res) => {
   } catch (error) {
     result = {
       success: false,
-      message: `${error}`,
+      message: `There was an error in borrowing this book, Detail: ${error}`,
     };
     res.status(400).send(result);
   }
 });
+
+//route to return a book
 router.post("/users/:userId/return/:bookId", async (req, res) => {
   let result;
   try {
@@ -25,7 +28,7 @@ router.post("/users/:userId/return/:bookId", async (req, res) => {
   } catch (error) {
     result = {
       success: false,
-      message: `${error}`,
+      message: `There was an error in returning this book. Detail: ${error}`,
     };
     res.status(400).send(result);
   }

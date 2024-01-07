@@ -5,7 +5,7 @@ class BorrowBusiness {
     this.borrowData = new BorrowData();
   }
 
-  // get all users
+  // boorow a book by a user
   async borrowBook(params) {
     try {
      const {userId,bookId}=params
@@ -15,6 +15,8 @@ class BorrowBusiness {
       throw err;
     }
   }
+
+  //return a book by an user
   async retrunBook(params,body) {
     try {
         const {userId,bookId}=params

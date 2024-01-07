@@ -5,7 +5,7 @@ class UserBusiness {
     this.BookData = new BookData();
   }
 
-  // get all users
+  // get all books
   async getAllBooks() {
     try {
       const result = await this.BookData.getAllBooks();
@@ -14,6 +14,8 @@ class UserBusiness {
       throw err;
     }
   }
+
+  //getting one book
   async getOneBook(bookId) {
     try {
       const result = await this.BookData.getOneBook(bookId.id);
@@ -22,6 +24,8 @@ class UserBusiness {
       throw err;
     }
   }
+
+  //insert a new book
   async insertBook(payload) {
     try {
       const result = await this.BookData.insertBook(payload);
